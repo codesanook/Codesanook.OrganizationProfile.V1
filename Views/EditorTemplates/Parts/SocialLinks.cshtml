@@ -1,0 +1,8 @@
+﻿@using Codesanook.OrganizationProfile.Models
+@model SocialLinksPart
+
+<div>
+    @Html.LabelFor(m => m.Facebook)
+    @Html.TextBoxFor(m => m.Facebook, new { @class = "test" })
+    @Html.ValidationMessageFor(m => m.Facebook)
+</div>

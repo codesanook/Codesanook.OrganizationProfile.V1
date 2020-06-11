@@ -1,0 +1,29 @@
+<!--
+https://docs.orchardproject.net/en/latest/Documentation/Understanding-placement-info/
+-->
+<Placement>
+    <!-- Shape type -->
+    <Place Parts_ContactForm_Edit="Content:1"/>
+
+    <Place Parts_Address="Content:1"/>
+    <Place Parts_ContactInformation="Sidebar:1"/>
+    <Place Parts_SocialLinks="Footer:1"/>
+
+    <Place Parts_Address_Edit="Content:1"/>
+    <Place Parts_ContactInformation_Edit="Content:2"/>
+    <Place Parts_SocialLinks_Edit="Content:3"/>
+
+    <Match Path="/*">
+        <Place Content_PublishButton="-"/>
+    </Match>
+
+    <Match Path="/admin/*">
+        <!--Show on admin only-->
+        <Place Content_PublishButton="Sidebar:24"/>
+    </Match>
+
+    <Match ContentType="ContactInformation">
+        <Place Parts_Navigation_AdminMenu_Edit="-"/>
+    </Match>
+    
+</Placement>

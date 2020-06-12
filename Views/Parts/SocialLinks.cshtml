@@ -3,13 +3,13 @@
 @model SocialLinksDisplayViewModel
 
 @{
-    // Get only not null properties with Reflection
     var type = typeof(SocialLinksDisplayViewModel);
+    var propertiesWithoutInheritedClass = type.GetProperties(
+        BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly
+    );
 
-    var links =
-        from p in type.GetProperties(
-            BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly
-        )
+    // Get only not null properties with Reflection
+    var links = from p in propertiesWithoutInheritedClass
         where p.GetValue(Model) != null
         select new { p.Name, Url = p.GetValue(Model) };
 }

@@ -27,6 +27,7 @@ namespace Codesanook.OrganizationProfile.Controllers {
             T = NullLocalizer.Instance;
         }
 
+        // URL: contact-us
         public ActionResult Index() {
             /* content item has multiple parts
              * content item => content item shape

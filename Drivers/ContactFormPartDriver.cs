@@ -21,12 +21,11 @@ namespace Codesanook.OrganizationProfile.Drivers {
             );
         }
 
+        // Editor post
         protected override DriverResult Editor(ContactFormPart part, IUpdateModel updater, dynamic shapeHelper) {
-
             // Fill form data to part
             updater.TryUpdateModel(part, Prefix, null, null);
             return Editor(part, shapeHelper);
-
         }
     }
 }

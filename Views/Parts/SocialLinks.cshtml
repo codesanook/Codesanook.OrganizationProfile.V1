@@ -10,7 +10,7 @@
 
     // Get only not null properties with Reflection
     var links = from p in propertiesWithoutInheritedClass
-        where p.GetValue(Model) != null
+        where !string.IsNullOrWhiteSpace(p.GetValue(Model) as string)
         select new { p.Name, Url = p.GetValue(Model) };
 }
 

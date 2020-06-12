@@ -66,7 +66,6 @@ namespace Codesanook.OrganizationProfile {
                 builder => builder.WithPart(nameof(ContactFormPart))
             );
 
-
             // Define Address part
             ContentDefinitionManager.AlterPartDefinition(
                 nameof(AddressPart),
@@ -83,7 +82,7 @@ namespace Codesanook.OrganizationProfile {
                     .WithDescription("A part for storing contact information")
             );
 
-            // Define SocialLink part
+            // Define SocialLinks part
             ContentDefinitionManager.AlterPartDefinition(
                 nameof(SocialLinksPart),
                 builder => builder

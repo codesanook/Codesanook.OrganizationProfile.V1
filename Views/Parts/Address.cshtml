@@ -1,14 +1,57 @@
 ﻿@using Codesanook.OrganizationProfile.ViewModels
 @model AddressDisplayViewModel
 
-<div>HouseNumber: @Model.HouseNumber</div>
-<div>VillageName: @Model.VillageName</div>
-<div>VillageNumber: @Model.VillageNumber</div>
-<div>BuildingName: @Model.BuildingName</div>
-<div>Floor: @Model.Floor</div>
-<div>Lane: @Model.Lane</div>
-<div>Street: @Model.Street</div>
-<div>Subdistrict: @Model.Subdistrict</div>
-<div>District: @Model.District</div>
-<div>Province: @Model.Province</div>
-<div>ZipCode: @Model.ZipCode</div>
+@if (!string.IsNullOrWhiteSpace(@Model.HouseNumber))
+{
+    <span>@Model.HouseNumber,</span>
+}
+
+@if (!string.IsNullOrWhiteSpace(@Model.VillageName))
+{
+    <span>@Model.VillageName</span>
+}
+
+@if (@Model.VillageNumber > 0)
+{
+    <span>@Model.VillageNumber,</span>
+}
+
+@if (!string.IsNullOrWhiteSpace(@Model.BuildingName))
+{
+    <span>@Model.BuildingName</span>
+}
+
+@if (@Model.Floor > 0)
+{
+    <span>@Model.Floor</span>
+}
+
+@if (!string.IsNullOrWhiteSpace(@Model.Lane))
+{
+    <span>@Model.Lane</span>
+}
+
+@if (!string.IsNullOrWhiteSpace(@Model.Street))
+{
+    <span>@Model.Street,</span>
+}
+
+@if (!string.IsNullOrWhiteSpace(@Model.Subdistrict))
+{
+    <span>@Model.Subdistrict</span>
+}
+
+@if (!string.IsNullOrWhiteSpace(@Model.District))
+{
+    <span>@Model.District</span>
+}
+
+@if (!string.IsNullOrWhiteSpace(@Model.Province))
+{
+    <span>@Model.Province</span>
+}
+
+@if (!string.IsNullOrWhiteSpace(@Model.ZipCode))
+{
+    <span>@Model.ZipCode</span>
+}

@@ -13,12 +13,14 @@
         where !string.IsNullOrWhiteSpace(p.GetValue(Model) as string)
         select new { p.Name, Url = p.GetValue(Model) };
 }
-
-<ul>
-    @foreach (var link in links)
-    {
-        <li>
-            <a href="@link.Url"> <i class="fa fa-@link.Name.ToLower()"></i> @link.Name </a>
-        </li>
-    }
-</ul>
+<article class="social-icon clearfix">
+    <h5><span>Social :</span></h5>
+    <ul class="clearfix">
+        @foreach (var link in links)
+        {
+            <li class="@link.Name.ToLower()-icon">
+                <a target="_blank"  href="@link.Url"> <i class="fa fa-@link.Name.ToLower()"></i></a>
+            </li>
+        }
+    </ul>
+</article>

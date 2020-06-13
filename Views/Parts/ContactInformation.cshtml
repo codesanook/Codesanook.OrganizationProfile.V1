@@ -1,7 +1,8 @@
-﻿<div>
-     Phone :  @Model.PhoneNumber
-</div>
-
-<div>
-     Email :  @Model.EmailAddress
-</div>
+﻿<p>
+    <strong>Phone :</strong>
+    <a href="tel:@Model.PhoneNumber" > @Model.PhoneNumber</a>
+</p>
+<p>
+    <strong>Email :</strong>
+    <a href="mailto:@Model.EmailAddress">@Model.EmailAddress</a>
+</p> 

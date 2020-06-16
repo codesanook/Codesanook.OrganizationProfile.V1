@@ -2,22 +2,47 @@
 @model ContactFormPart
 
 <div class="form-group">
-    @Html.TextBoxFor(m => m.Name, new { @class = "form-control input-contact-us", placeholder = @Html.DisplayNameFor(m => m.Name) })
+    @Html.TextBoxFor(
+        m => m.Name,
+        new {
+            @class = "form-control input-contact-us",
+            placeholder = T(Html.DisplayNameFor(m => m.Name).ToString())
+        }
+    )
     @Html.ValidationMessageFor(m => m.Name)
 </div>
 
 <div class="form-group">
-    @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control input-contact-us", placeholder = @Html.DisplayNameFor(m => m.EmailAddress) })
+    @Html.TextBoxFor(
+        m => m.EmailAddress,
+        new {
+            @class = "form-control input-contact-us",
+            placeholder = T(Html.DisplayNameFor(m => m.EmailAddress).ToString())
+        }
+    )
     @Html.ValidationMessageFor(m => m.EmailAddress)
 </div>
 
 <div class="form-group">
-    @Html.TextBoxFor(m => m.MobilePhoneNumber, new { @class = "form-control  input-contact-us", placeholder = @Html.DisplayNameFor(m => m.MobilePhoneNumber) })
+    @Html.TextBoxFor(
+        m => m.MobilePhoneNumber,
+        new {
+            @class = "form-control  input-contact-us",
+            placeholder = T(Html.DisplayNameFor(m => m.MobilePhoneNumber).ToString())
+        }
+    )
     @Html.ValidationMessageFor(m => m.MobilePhoneNumber)
 </div>
 
 <div class="form-group">
-    @Html.TextAreaFor(m => m.Message, new { @class = "form-control input-contact-us", placeholder = @Html.DisplayNameFor(m => m.Message) , rows = 6})
+    @Html.TextAreaFor(
+        m => m.Message,
+        new {
+            @class = "form-control input-contact-us",
+            placeholder = T(Html.DisplayNameFor(m => m.Message).ToString()),
+            rows = 6
+        }
+    )
     @Html.ValidationMessageFor(m => m.Message)
 </div>
 

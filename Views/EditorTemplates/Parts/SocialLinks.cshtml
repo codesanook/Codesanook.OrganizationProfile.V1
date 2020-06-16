@@ -2,7 +2,7 @@
 @model SocialLinksPart
 
 <div>
-    @Html.LabelFor(m => m.Facebook)
-    @Html.TextBoxFor(m => m.Facebook, new { @class = "test" })
+    <label for="@Html.IdFor(m => m.Facebook)">@T(Html.DisplayNameFor(m=>m.Facebook).ToString())</label>
+    @Html.TextBoxFor(m => m.Facebook, new { @class = "text medium" })
     @Html.ValidationMessageFor(m => m.Facebook)
 </div>

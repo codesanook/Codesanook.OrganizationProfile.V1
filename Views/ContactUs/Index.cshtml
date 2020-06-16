@@ -6,7 +6,14 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-
+            <div class="full-width-contents">
+                <div class="entry-content">
+                    <h2>Get in Touch</h2>
+                    <p>
+                        Please fill your contact information and message to contact.
+                    </p>
+                </div>
+            </div>
             @using (Html.BeginFormAntiForgeryPost(Url.Action(nameof(ContactUsController.Index))))
             {
                 @Html.ValidationSummary()

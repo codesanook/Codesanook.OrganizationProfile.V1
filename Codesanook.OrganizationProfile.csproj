@@ -111,6 +111,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routes.cs" />
     <Compile Include="ViewModels\AddressDisplayViewModel.cs" />
+    <Compile Include="ViewModels\ContactInformationDisplayViewModel.cs" />
     <Compile Include="ViewModels\SocialLinksDisplayViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

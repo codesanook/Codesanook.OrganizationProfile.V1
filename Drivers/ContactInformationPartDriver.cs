@@ -1,13 +1,20 @@
 ﻿using Codesanook.OrganizationProfile.Models;
+using Codesanook.OrganizationProfile.ViewModels;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Drivers;
+using Orchard.Localization;
 
 namespace Codesanook.OrganizationProfile.Drivers {
     public class ContactInformationPartDriver : ContentPartDriver<ContactInformationPart> {
         private readonly IContentManager contentManager;
+        public Localizer T { get; set; }
+
         protected override string Prefix => nameof(ContactInformationPart);
 
-        public ContactInformationPartDriver(IContentManager contentManager) => this.contentManager = contentManager;
+        public ContactInformationPartDriver(IContentManager contentManager) {
+            this.contentManager = contentManager;
+            T = NullLocalizer.Instance;
+        }
 
         protected override DriverResult Display(
             ContactInformationPart part,
@@ -17,10 +24,14 @@ namespace Codesanook.OrganizationProfile.Drivers {
 
             return ContentShape(
                 "Parts_ContactInformation",
-                () =>  shapeHelper.Parts_ContactInformation(
-                    PhoneNumber: part.PhoneNumber,
-                    EmailAddress: part.EmailAddress 
-                )
+                () => {
+                    ContactInformationDisplayViewModel viewModel = shapeHelper.Parts_ContactInformation(
+                        typeof(ContactInformationDisplayViewModel)
+                    );
+                    viewModel.PhoneNumber = part.PhoneNumber;
+                    viewModel.EmailAddress = part.EmailAddress;
+                    return viewModel;
+                }
             );
         }
 

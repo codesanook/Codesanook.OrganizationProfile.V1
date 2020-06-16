@@ -27,7 +27,9 @@ namespace Codesanook.OrganizationProfile.Drivers {
                     model.VillageNumber = part.VillageNumber;
 
                     model.BuildingName = part.BuildingName;
+                    model.RoomNumber = part.RoomNumber;
                     model.Floor = part.Floor;
+
                     model.Lane = part.Lane;
                     model.Street = part.Street;
                     

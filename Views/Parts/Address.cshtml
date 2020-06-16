@@ -1,57 +1,74 @@
 ﻿@using Codesanook.OrganizationProfile.ViewModels
 @model AddressDisplayViewModel
 
-@if (!string.IsNullOrWhiteSpace(@Model.HouseNumber))
+@if (!string.IsNullOrWhiteSpace(Model.HouseNumber))
 {
+    @T(Html.DisplayNameFor(m => m.HouseNumber).ToString())
     <span>@Model.HouseNumber,</span>
 }
 
-@if (!string.IsNullOrWhiteSpace(@Model.VillageName))
+@if (!string.IsNullOrWhiteSpace(Model.VillageName))
 {
+    @T(Html.DisplayNameFor(m => m.VillageName).ToString())
     <span>@Model.VillageName</span>
 }
 
-@if (@Model.VillageNumber > 0)
+@if (Model.VillageNumber > 0)
 {
+    @T(Html.DisplayNameFor(m => m.VillageNumber).ToString())
     <span>@Model.VillageNumber,</span>
 }
 
-@if (!string.IsNullOrWhiteSpace(@Model.BuildingName))
+@if (!string.IsNullOrWhiteSpace(Model.BuildingName))
 {
+    @T(Html.DisplayNameFor(m => m.BuildingName).ToString())
     <span>@Model.BuildingName</span>
 }
 
-@if (@Model.Floor > 0)
+@if (!string.IsNullOrWhiteSpace(Model.RoomNumber))
 {
+    @T(Html.DisplayNameFor(m => m.RoomNumber).ToString())
+    <span>@Model.RoomNumber</span>
+}
+
+@if (Model.Floor.HasValue)
+{
+    @T(Html.DisplayNameFor(m => m.Floor).ToString())
     <span>@Model.Floor</span>
 }
 
-@if (!string.IsNullOrWhiteSpace(@Model.Lane))
+@if (!string.IsNullOrWhiteSpace(Model.Lane))
 {
+    @T(Html.DisplayNameFor(m => m.Lane).ToString())
     <span>@Model.Lane</span>
 }
 
-@if (!string.IsNullOrWhiteSpace(@Model.Street))
+@if (!string.IsNullOrWhiteSpace(Model.Street))
 {
+    @T(Html.DisplayNameFor(m => m.Street).ToString())
     <span>@Model.Street,</span>
 }
 
-@if (!string.IsNullOrWhiteSpace(@Model.Subdistrict))
+@if (!string.IsNullOrWhiteSpace(Model.Subdistrict))
 {
+    @T(Html.DisplayNameFor(m => m.Subdistrict).ToString())
     <span>@Model.Subdistrict</span>
 }
 
-@if (!string.IsNullOrWhiteSpace(@Model.District))
+@if (!string.IsNullOrWhiteSpace(Model.District))
 {
+    @T(Html.DisplayNameFor(m => m.District).ToString())
     <span>@Model.District</span>
 }
 
-@if (!string.IsNullOrWhiteSpace(@Model.Province))
+@if (!string.IsNullOrWhiteSpace(Model.Province))
 {
+    @T(Html.DisplayNameFor(m => m.Province).ToString())
     <span>@Model.Province</span>
 }
 
-@if (!string.IsNullOrWhiteSpace(@Model.ZipCode))
+@if (!string.IsNullOrWhiteSpace(Model.ZipCode))
 {
+    @T(Html.DisplayNameFor(m => m.ZipCode).ToString())
     <span>@Model.ZipCode</span>
 }

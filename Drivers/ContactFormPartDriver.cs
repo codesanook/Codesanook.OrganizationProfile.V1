@@ -1,14 +1,19 @@
 ﻿using Codesanook.OrganizationProfile.Models;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Drivers;
+using Orchard.Localization;
 
 namespace Codesanook.OrganizationProfile.Drivers {
     public class ContactFormPartDriver : ContentPartDriver<ContactFormPart> {
         private readonly IContentManager contentManager;
         protected override string Prefix => nameof(ContactFormPart);
 
-        public ContactFormPartDriver(IContentManager contentManager) =>
+        public Localizer T { get; set; }
+
+        public ContactFormPartDriver(IContentManager contentManager) {
             this.contentManager = contentManager;
+            T = NullLocalizer.Instance;
+        }
 
         protected override DriverResult Editor(ContactFormPart part, dynamic shapeHelper) {
             return ContentShape(
@@ -25,6 +30,7 @@ namespace Codesanook.OrganizationProfile.Drivers {
         protected override DriverResult Editor(ContactFormPart part, IUpdateModel updater, dynamic shapeHelper) {
             // Fill form data to part
             updater.TryUpdateModel(part, Prefix, null, null);
+            //updater.AddModelError(  $"{Prefix}.ContainerId", T("Invalid container"));
             return Editor(part, shapeHelper);
         }
     }

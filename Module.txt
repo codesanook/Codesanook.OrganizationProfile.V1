@@ -5,4 +5,4 @@ Website: https://www.codesanook.com
 Version: 1.0
 OrchardVersion: 1.10.3
 Description: A simple Orchard module that contains contact form, address, social link parts
-Dependencies: Codesanook.Common, Orchard.Autoroute
+Dependencies: Codesanook.Common, Orchard.Autoroute, Orchard.Email

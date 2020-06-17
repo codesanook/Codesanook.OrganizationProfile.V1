@@ -4,5 +4,5 @@
 <div>
     <label for="@Html.IdFor(m => m.Facebook)">@T(Html.DisplayNameFor(m=>m.Facebook).ToString())</label>
     @Html.TextBoxFor(m => m.Facebook, new { @class = "text medium" })
-    @Html.ValidationMessageFor(m => m.Facebook, "", new { @class = "validation-summary-errors" })
+    @Html.ValidationMessageFor(m => m.Facebook)
 </div>

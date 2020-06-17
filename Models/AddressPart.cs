@@ -72,7 +72,7 @@ namespace Codesanook.OrganizationProfile.Models {
         }
 
         [DisplayName("Zip code")]
-        [RegularExpression(@"^\d{5}$", ErrorMessage = "Format zip code is incorrect")]
+        [RegularExpression(@"^\d{5}$", ErrorMessage = "ZIP code must be 5 digits.")]
         [Required]
         public string ZipCode {
             get => this.Retrieve(x => x.ZipCode);

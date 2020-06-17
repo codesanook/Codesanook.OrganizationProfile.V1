@@ -4,11 +4,11 @@
 <div>
     <label for="@Html.IdFor(m => m.PhoneNumber)">@T(Html.DisplayNameFor(m=>m.PhoneNumber).ToString())</label>
     @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "text medium" })
-    @Html.ValidationMessageFor(m => m.PhoneNumber)
+    @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "validation-summary-errors" })
 </div>
 
 <div>
     <label for="@Html.IdFor(m => m.EmailAddress)">@T(Html.DisplayNameFor(m=>m.EmailAddress).ToString())</label>
     @Html.TextBoxFor(m => m.EmailAddress, new { @class = "text medium" })
-    @Html.ValidationMessageFor(m => m.EmailAddress)
+    @Html.ValidationMessageFor(m => m.EmailAddress, "", new { @class = "validation-summary-errors" })
 </div>

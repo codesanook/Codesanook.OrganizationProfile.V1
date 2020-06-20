@@ -68,18 +68,17 @@ namespace Codesanook.OrganizationProfile.Controllers {
             // Call driver editor, and return a item which is a shape that contain form data
             var contactFormShape = contentManager.UpdateEditor(contactForm, this);
             if (ModelState.IsValid) {
-                //SendEmailToAdmin(contactForm);
+                SendEmailToAdmin(contactForm);
+
+                notifier.Information(T("The contact message was sent successfully."));
             }
 
-            var viewModel = CreateViewModel(contactFormShape);
-            return View(nameof(Index), viewModel);
+            return RedirectToAction("index");
         }
 
         private void SendEmailToAdmin(ContentItem contactForm) {
             //Send email
-            var template = shapeFactory.Create(
-                "Emails_Template_ContactUs",
-                Arguments.From(new {
+            var template = shapeFactory.Create("Email_Template_ContactUs",Arguments.From(new {
                     ContactForm = contactForm.As<ContactFormPart>(),
                 })
             );
@@ -88,10 +87,11 @@ namespace Codesanook.OrganizationProfile.Controllers {
             var contactInformation = contentManager.Query("ContactInformation").List().First();
             var contactInformationPart = contactInformation.As<ContactInformationPart>();
 
+            var bodyHtml = shapeDisplay.Display(template);
             var parameters = new Dictionary<string, object>
             {
                 { "Subject", T("New contact us").Text },
-                { "Body", shapeDisplay.Display(template) },//tranform to HTML with shapeDisplay
+                { "Body", bodyHtml },//tranform to HTML with shapeDisplay
                 { "Recipients",  contactInformationPart.EmailAddress } // CSV for multiple email
             };
             // Then underlying class is SmtpMessageChannel

@@ -57,33 +57,34 @@ namespace Codesanook.OrganizationProfile.Controllers {
 
         [HttpPost]
         [ActionName(nameof(Index))]
-        public ActionResult SendMessage(string returnUrl) {
-            // New ContactForm item but not save to database
+        public ActionResult SendMessage() {
+            // Create a new ContactForm item but not save to database
             var contactForm = contentManager.New(contentType: "ContactForm");
-
-            //TODO
-            // verify if data bind to contact form object
-            // test form validator
-
             // Call driver editor, and return a item which is a shape that contain form data
             var contactFormShape = contentManager.UpdateEditor(contactForm, this);
-            if (ModelState.IsValid) {
-                SendEmailToAdmin(contactForm);
+            dynamic viewModel;  
 
-                notifier.Information(T("The contact message was sent successfully."));
+            if (!ModelState.IsValid) {
+                viewModel = CreateViewModel(contactFormShape);
+                return View(viewModel);
             }
 
-            return RedirectToAction("index");
+                SendEmailToAdmin(contactForm);
+                notifier.Information(T("Your message was sent successfully. We will contact you back shortly."));
+
+            contactFormShape = contentManager.UpdateEditor(contactForm, this);
+            viewModel = CreateViewModel(contactFormShape);
+                return View(viewModel);
         }
 
         private void SendEmailToAdmin(ContentItem contactForm) {
-            //Send email
-            var template = shapeFactory.Create("Email_Template_ContactUs",Arguments.From(new {
-                    ContactForm = contactForm.As<ContactFormPart>(),
-                })
+            // Send an email
+            // !!! Folder look works only Parts folder !!!
+            var template = shapeFactory.Email_Template_ContactUs(
+                ContactForm : contactForm.As<ContactFormPart>() 
             );
 
-            //template.Metadata.Wrappers.Add("Template_User_Wrapper");
+            // FYI in case we need wrapper template.Metadata.Wrappers.Add("Emails_Template_Wrapper");
             var contactInformation = contentManager.Query("ContactInformation").List().First();
             var contactInformationPart = contactInformation.As<ContactInformationPart>();
 
@@ -91,10 +92,12 @@ namespace Codesanook.OrganizationProfile.Controllers {
             var parameters = new Dictionary<string, object>
             {
                 { "Subject", T("New contact us").Text },
-                { "Body", bodyHtml },//tranform to HTML with shapeDisplay
+                { "Body", bodyHtml },// Tranform to HTML with shapeDisplay.Display
                 { "Recipients",  contactInformationPart.EmailAddress } // CSV for multiple email
             };
-            // Then underlying class is SmtpMessageChannel
+
+            // The underlying class is SmtpMessageChannel
+            // It handles exception internally and not throw up to a caller.
             messageService.Send(
                 DefaultEmailMessageChannelSelector.ChannelName,
                 parameters
@@ -115,6 +118,10 @@ namespace Codesanook.OrganizationProfile.Controllers {
             var contactInformation = contentManager.Query("ContactInformation").List().First();
             var contactInformationShape = contentManager.BuildDisplay(contactInformation);
 
+           /// <see cref="Orchard.DisplayManagement.Implementation.DefaultShapeFactory.Create(string, INamedEnumerable{object}, System.Func{dynamic})"/>
+           /// Here is why we can access parater as a proper in CSHTML file
+           /// createdContext.Shape[prop.Name] = prop.GetValue(initializer, null);
+           /// shapeFactory.ViewModel return createdContext.Shape
             var viewModel = shapeFactory.ViewModel(
                 ContactForm: contactFormShape,
                 ContactInformation: contactInformationShape

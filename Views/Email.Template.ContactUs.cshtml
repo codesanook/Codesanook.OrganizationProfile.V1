@@ -1,0 +1,22 @@
+﻿@using Codesanook.OrganizationProfile.Models
+@{
+    var contactForm = Model.ContactForm as ContactFormPart;
+}
+<h4>
+    Contact us email
+</h4>
+
+<p>
+    There is someone contacted us via contact us from.
+</p>
+
+<ul>
+    <li>Name: @contactForm.Name</li>
+    <li>Email address: @contactForm.EmailAddress</li>
+    <li>Mobile phone number: @contactForm.MobilePhoneNumber</li>
+</ul>
+
+<h4>Message:</h4>
+<p>
+    @contactForm.Message
+</p>

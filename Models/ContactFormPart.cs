@@ -8,11 +8,11 @@ namespace Codesanook.OrganizationProfile.Models {
         [Required]
         public string Name { get; set; }
 
-        [DisplayName("Email Address")]
+        [DisplayName("Email address")]
         [Required]
         public string EmailAddress { get; set; }
 
-        [DisplayName("Phone Number")]
+        [DisplayName("Mobile phone number")]
         [Required]
         public string MobilePhoneNumber { get; set; }
 

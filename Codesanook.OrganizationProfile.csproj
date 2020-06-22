@@ -170,13 +170,7 @@
     <Content Include="Views\EditorTemplates\Parts\SocialLinks.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Emails\Template.ContactUs.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Emails\Template.Wrapper.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Email_Template.ContactUs.cshtml" />
+    <Content Include="Views\Email.Template.ContactUs.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

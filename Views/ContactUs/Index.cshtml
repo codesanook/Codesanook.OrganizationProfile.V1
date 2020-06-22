@@ -2,23 +2,23 @@
 @{
     Layout.Title = "Contact us";
 }
-
 <div class="container">
     <div class="row">
         <div class="col-6">
             <div class="full-width-contents">
                 <div class="entry-content">
                     <h2>Get in Touch</h2>
-                    <p>
+                    @* https://getbootstrap.com/docs/4.0/components/forms/#help-text *@
+                    <small class="form-text text-muted">
                         Please fill your contact information and message to contact.
-                    </p>
+                    </small>
                 </div>
             </div>
             @using (Html.BeginFormAntiForgeryPost(Url.Action(nameof(ContactUsController.Index))))
             {
                 @*
-                    Model is a Shape, calling Display()
-                    so that it is rendered using the most specific template for its Shape type
+                    Model is a Shape.
+                    Calling Display() to render a shape using the most specific template for its Shape type
                 *@
                 @Display(Model.ContactForm)
             }

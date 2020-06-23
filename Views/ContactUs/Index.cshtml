@@ -10,10 +10,16 @@
                     <h2>Get in Touch</h2>
                     @* https://getbootstrap.com/docs/4.0/components/forms/#help-text *@
                     <small class="form-text text-muted">
-                        Please fill your contact information and message to contact.
+                        Please fill your contact information, message and click send button to contact us.
                     </small>
                 </div>
             </div>
+    <div>
+        @Html.ValidationSummary(
+            excludePropertyErrors: true,
+            "Please fix errors and then click send button again."
+        )  
+    </div>
             @using (Html.BeginFormAntiForgeryPost(Url.Action(nameof(ContactUsController.Index))))
             {
                 @*

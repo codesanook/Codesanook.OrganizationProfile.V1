@@ -62,26 +62,24 @@ namespace Codesanook.OrganizationProfile.Controllers {
             var contactForm = contentManager.New(contentType: "ContactForm");
             // Call driver editor, and return a item which is a shape that contain form data
             var contactFormShape = contentManager.UpdateEditor(contactForm, this);
-            dynamic viewModel;  
+            dynamic viewModel;
 
             if (!ModelState.IsValid) {
                 viewModel = CreateViewModel(contactFormShape);
                 return View(viewModel);
             }
 
-                SendEmailToAdmin(contactForm);
-                notifier.Information(T("Your message was sent successfully. We will contact you back shortly."));
+            SendEmailToAdmin(contactForm);
+            notifier.Success(T("Your message was sent successfully. We will contact you back shortly."));
 
-            contactFormShape = contentManager.UpdateEditor(contactForm, this);
-            viewModel = CreateViewModel(contactFormShape);
-                return View(viewModel);
+            return RedirectToAction(nameof(Index));
         }
 
         private void SendEmailToAdmin(ContentItem contactForm) {
             // Send an email
             // !!! Folder look works only Parts folder !!!
             var template = shapeFactory.Email_Template_ContactUs(
-                ContactForm : contactForm.As<ContactFormPart>() 
+                ContactForm: contactForm.As<ContactFormPart>()
             );
 
             // FYI in case we need wrapper template.Metadata.Wrappers.Add("Emails_Template_Wrapper");
@@ -118,10 +116,10 @@ namespace Codesanook.OrganizationProfile.Controllers {
             var contactInformation = contentManager.Query("ContactInformation").List().First();
             var contactInformationShape = contentManager.BuildDisplay(contactInformation);
 
-           /// <see cref="Orchard.DisplayManagement.Implementation.DefaultShapeFactory.Create(string, INamedEnumerable{object}, System.Func{dynamic})"/>
-           /// Here is why we can access parater as a proper in CSHTML file
-           /// createdContext.Shape[prop.Name] = prop.GetValue(initializer, null);
-           /// shapeFactory.ViewModel return createdContext.Shape
+            /// <see cref="Orchard.DisplayManagement.Implementation.DefaultShapeFactory.Create(string, INamedEnumerable{object}, System.Func{dynamic})"/>
+            /// Here is why we can access parater as a proper in CSHTML file
+            /// createdContext.Shape[prop.Name] = prop.GetValue(initializer, null);
+            /// shapeFactory.ViewModel return createdContext.Shape
             var viewModel = shapeFactory.ViewModel(
                 ContactForm: contactFormShape,
                 ContactInformation: contactInformationShape

@@ -4,7 +4,8 @@
 <div class="form-group">
     @Html.TextBoxFor(
         m => m.Name,
-        new {
+        new
+            {
             @class = "form-control input-contact-us",
             placeholder = T(Html.DisplayNameFor(m => m.Name).ToString())
         }
@@ -15,7 +16,9 @@
 <div class="form-group">
     @Html.TextBoxFor(
         m => m.EmailAddress,
-        new {
+        new
+            {
+                type = "email",
             @class = "form-control input-contact-us",
             placeholder = T(Html.DisplayNameFor(m => m.EmailAddress).ToString())
         }
@@ -26,7 +29,9 @@
 <div class="form-group">
     @Html.TextBoxFor(
         m => m.MobilePhoneNumber,
-        new {
+        new
+            {
+                type = "tel",
             @class = "form-control  input-contact-us",
             placeholder = T(Html.DisplayNameFor(m => m.MobilePhoneNumber).ToString())
         }
@@ -37,8 +42,9 @@
 <div class="form-group">
     @Html.TextAreaFor(
         m => m.Message,
-        new {
-            @class = "form-control input-contact-us",
+        new
+            {
+                @class = "form-control input-contact-us",
             placeholder = T(Html.DisplayNameFor(m => m.Message).ToString()),
             rows = 6
         }
@@ -46,4 +52,4 @@
     @Html.ValidationMessageFor(m => m.Message)
 </div>
 
-<button type="submit" class="btn-submit-contact-us">SUBMIT</button>
+<button type="submit" class="btn-submit-contact-us mb-4">SUBMIT</button>

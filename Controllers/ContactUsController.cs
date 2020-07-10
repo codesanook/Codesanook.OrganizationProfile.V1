@@ -46,7 +46,7 @@ namespace Codesanook.OrganizationProfile.Controllers {
             /* content item has multiple parts
              * content item => content item shape
              * content item shape has multiple content zone shape
-             * each zone shape has content part
+             * each zone shape has a content part
              */
             var contactForm = contentManager.New(contentType: "ContactForm");
             var contactFormShape = contentManager.BuildEditor(contactForm);
@@ -86,6 +86,7 @@ namespace Codesanook.OrganizationProfile.Controllers {
             var contactInformation = contentManager.Query("ContactInformation").List().First();
             var contactInformationPart = contactInformation.As<ContactInformationPart>();
 
+            // Render a shape
             var bodyHtml = shapeDisplay.Display(template);
             var parameters = new Dictionary<string, object>
             {
@@ -117,7 +118,7 @@ namespace Codesanook.OrganizationProfile.Controllers {
             var contactInformationShape = contentManager.BuildDisplay(contactInformation);
 
             /// <see cref="Orchard.DisplayManagement.Implementation.DefaultShapeFactory.Create(string, INamedEnumerable{object}, System.Func{dynamic})"/>
-            /// Here is why we can access parater as a proper in CSHTML file
+            /// Here is why we can access a parameter as a property in CSHTML file
             /// createdContext.Shape[prop.Name] = prop.GetValue(initializer, null);
             /// shapeFactory.ViewModel return createdContext.Shape
             var viewModel = shapeFactory.ViewModel(

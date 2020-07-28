@@ -77,7 +77,7 @@ namespace Codesanook.OrganizationProfile.Controllers {
 
         private void SendEmailToAdmin(ContentItem contactForm) {
             // Send an email
-            // !!! Folder look works only Parts folder !!!
+            // !!! Folder lookup works only Parts folder !!!
             var template = shapeFactory.Email_Template_ContactUs(
                 ContactForm: contactForm.As<ContactFormPart>()
             );
@@ -91,7 +91,7 @@ namespace Codesanook.OrganizationProfile.Controllers {
             var parameters = new Dictionary<string, object>
             {
                 { "Subject", T("New contact us").Text },
-                { "Body", bodyHtml },// Tranform to HTML with shapeDisplay.Display
+                { "Body", bodyHtml }, // The body is transformed to HTML by shapeDisplay.Display
                 { "Recipients",  contactInformationPart.EmailAddress } // CSV for multiple email
             };
 

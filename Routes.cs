@@ -19,7 +19,7 @@ namespace Codesanook.OrganizationProfile {
                 Name = "ContactUs",
                 Priority = 100,
                 Route = new Route(
-                    url:"contact-us",
+                    url:"ContactUs",
                     defaults: new RouteValueDictionary {
                         { "controller", "ContactUs" },
                         { "action", "Index" }

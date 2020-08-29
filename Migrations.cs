@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Codesanook.OrganizationProfile.Models;
 using Orchard;
 using Orchard.Autoroute.Services;
@@ -6,6 +7,7 @@ using Orchard.ContentManagement;
 using Orchard.ContentManagement.MetaData;
 using Orchard.Core.Contents.Extensions;
 using Orchard.Core.Navigation.Models;
+using Orchard.Core.Navigation.Services;
 using Orchard.Core.Navigation.Settings;
 using Orchard.Data.Migration;
 using Orchard.Localization;
@@ -24,6 +26,7 @@ namespace Codesanook.OrganizationProfile {
         private readonly Lazy<IAutorouteService> autorouteService;
         private readonly ISiteService siteService;
         private readonly IMembershipService membershipService;
+        private readonly IMenuService menuService;
 
         protected Localizer T { get; set; }
         protected ILogger Logger { get; set; }
@@ -35,7 +38,8 @@ namespace Codesanook.OrganizationProfile {
             INavigationManager navigationManager,
             Lazy<IAutorouteService> autorouteService,
             ISiteService siteService,
-            IMembershipService membershipService
+            IMembershipService membershipService,
+            IMenuService menuService
         ) {
             this.orchardServices = orchardServices;
             this.authenticationService = authenticationService;
@@ -44,7 +48,7 @@ namespace Codesanook.OrganizationProfile {
             this.autorouteService = autorouteService;
             this.siteService = siteService;
             this.membershipService = membershipService;
-
+            this.menuService = menuService;
             T = NullLocalizer.Instance;
             Logger = NullLogger.Instance;
         }
@@ -115,6 +119,25 @@ namespace Codesanook.OrganizationProfile {
             contentManager.Create(adminMenuPart.ContentItem);
 
             return 1;
+        }
+
+        public int UpdateFrom1() {
+            var menus = menuService.GetMenus().ToArray();
+            var mainMenu = menus[0];// On assumption that the first menu is main menu
+            // Alternative way to the main menu by name
+            // var mainMenu = menuService.GetMenu("Main Menu");
+            var menuItem = contentManager.Create("MenuItem");
+
+            var menuPart = menuItem.As<MenuPart>();
+            menuPart.Menu = mainMenu; // Link to main menu 
+            menuPart.MenuText = "Contact us";
+            // Get the next menu position from existing menu item in main menu
+            menuPart.MenuPosition = Position.GetNext(navigationManager.BuildMenu(mainMenu));
+
+            var menuItemPart = menuItem.As<MenuItemPart>();
+            menuItemPart.Url = "/ContactUs";
+
+            return 2;
         }
 
         private string GetMenuPosition(ContentPart part) {

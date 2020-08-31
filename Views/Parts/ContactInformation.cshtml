@@ -1,10 +1,10 @@
 ﻿@using Codesanook.OrganizationProfile.ViewModels
 @model ContactInformationDisplayViewModel 
-<p>
+<p class="text-nowrap-dx">
     <strong>@Html.DisplayNameFor(m=>m.PhoneNumber) :</strong>
     <a href="tel:@Model.PhoneNumber"> @Model.PhoneNumber</a>
 </p>
-<p>
+<p class="text-nowrap-dx">
     <strong>@Html.DisplayNameFor(m=>m.EmailAddress) :</strong>
     <a href="mailto:@Model.EmailAddress">@Model.EmailAddress</a>
 </p> 

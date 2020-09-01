@@ -1,0 +1,12 @@
+﻿msgid "House number"
+msgstr "บ้านเลขที่"
+
+msgid "Village name"
+msgstr "หมู่บ้าน"
+
+msgid "Village number"
+msgstr "หมู่ที่"
+
+msgid "Building name"
+msgstr "อาคาร"
+

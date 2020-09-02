@@ -118,10 +118,6 @@ namespace Codesanook.OrganizationProfile {
             // Create and save ContactInformation content item to a database
             contentManager.Create(adminMenuPart.ContentItem);
 
-            return 1;
-        }
-
-        public int UpdateFrom1() {
             var menus = menuService.GetMenus().ToArray();
             var mainMenu = menus[0];// On assumption that the first menu is main menu
             // Alternative way to the main menu by name
@@ -137,7 +133,8 @@ namespace Codesanook.OrganizationProfile {
             var menuItemPart = menuItem.As<MenuItemPart>();
             menuItemPart.Url = "/ContactUs";
 
-            return 2;
+
+            return 1;
         }
 
         private string GetMenuPosition(ContentPart part) {

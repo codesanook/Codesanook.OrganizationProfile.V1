@@ -133,7 +133,6 @@ namespace Codesanook.OrganizationProfile {
             var menuItemPart = menuItem.As<MenuItemPart>();
             menuItemPart.Url = "/ContactUs";
 
-
             return 1;
         }
 

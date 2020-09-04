@@ -117,7 +117,6 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="packages.config" />
-    <Content Include="Styles\organization-profile.css" />
     <Content Include="Web.config" />
     <Content Include="Scripts\Web.config" />
     <Content Include="Styles\Web.config" />

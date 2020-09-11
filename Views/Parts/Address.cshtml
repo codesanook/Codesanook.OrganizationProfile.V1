@@ -3,50 +3,66 @@
 
 @if (!string.IsNullOrWhiteSpace(Model.HouseNumber))
 {
-    @T(Html.DisplayNameFor(m => m.HouseNumber).ToString())
-    <span>@Model.HouseNumber,</span>
+    <span class="text-nowrap">
+        @T(Html.DisplayNameFor(m => m.HouseNumber).ToString())
+        @Model.HouseNumber,
+    </span>
 }
 
 @if (!string.IsNullOrWhiteSpace(Model.VillageName))
 {
-    @T(Html.DisplayNameFor(m => m.VillageName).ToString())
-    <span>@Model.VillageName</span>
+    <span class="text-nowrap">
+        @T(Html.DisplayNameFor(m => m.VillageName).ToString())
+        @Model.VillageName
+    </span>
 }
 
 @if (Model.VillageNumber > 0)
 {
-    @T(Html.DisplayNameFor(m => m.VillageNumber).ToString())
-    <span>@Model.VillageNumber,</span>
+    <span class="text-nowrap">
+        @T(Html.DisplayNameFor(m => m.VillageNumber).ToString())
+        @Model.VillageNumber,
+    </span>
 }
 
 @if (!string.IsNullOrWhiteSpace(Model.BuildingName))
 {
-    @T(Html.DisplayNameFor(m => m.BuildingName).ToString())
-    <span>@Model.BuildingName</span>
+    <span class="text-nowrap">
+        @T(Html.DisplayNameFor(m => m.BuildingName).ToString())
+        @Model.BuildingName
+    </span>
 }
 
 @if (!string.IsNullOrWhiteSpace(Model.RoomNumber))
 {
-    @T(Html.DisplayNameFor(m => m.RoomNumber).ToString())
-    <span>@Model.RoomNumber</span>
+    <span class="text-nowrap">
+        @T(Html.DisplayNameFor(m => m.RoomNumber).ToString())
+        @Model.RoomNumber
+    </span>
 }
 
 @if (Model.Floor.HasValue)
 {
-    @T(Html.DisplayNameFor(m => m.Floor).ToString())
-    <span>@Model.Floor</span>
+    <span class="text-nowrap">
+        @T(Html.DisplayNameFor(m => m.Floor).ToString())
+        @Model.Floor
+    </span>
 }
 
 @if (!string.IsNullOrWhiteSpace(Model.Lane))
 {
-    @T(Html.DisplayNameFor(m => m.Lane).ToString())
-    <span>@Model.Lane</span>
+    <span class="text-nowrap">
+        @T(Html.DisplayNameFor(m => m.Lane).ToString())
+        @Model.Lane
+    </span>
 }
 
 @if (!string.IsNullOrWhiteSpace(Model.Street))
 {
-    @T(Html.DisplayNameFor(m => m.Street).ToString())
-    <span>@Model.Street,</span>
+    <span class="text-nowrap">
+        @T(Html.DisplayNameFor(m => m.Street).ToString())
+        @Model.Street,
+    </span>
 }
 
 @if (!string.IsNullOrWhiteSpace(Model.Subdistrict))
@@ -57,18 +73,24 @@
 
 @if (!string.IsNullOrWhiteSpace(Model.District))
 {
-    @T(Html.DisplayNameFor(m => m.District).ToString())
-    <span>@Model.District</span>
+    <span class="text-nowrap">
+        @T(Html.DisplayNameFor(m => m.District).ToString())
+        @Model.District
+    </span>
 }
 
 @if (!string.IsNullOrWhiteSpace(Model.Province))
 {
-    @T(Html.DisplayNameFor(m => m.Province).ToString())
-    <span>@Model.Province</span>
+    <span class="text-nowrap">
+        @T(Html.DisplayNameFor(m => m.Province).ToString())
+        @Model.Province
+    </span>
 }
 
 @if (!string.IsNullOrWhiteSpace(Model.ZipCode))
 {
-    @T(Html.DisplayNameFor(m => m.ZipCode).ToString())
-    <span>@Model.ZipCode</span>
+    <span class="text-nowrap">
+        @T(Html.DisplayNameFor(m => m.ZipCode).ToString())
+        @Model.ZipCode
+    </span>
 }

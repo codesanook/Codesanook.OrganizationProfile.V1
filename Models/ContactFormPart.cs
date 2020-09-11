@@ -6,6 +6,7 @@ namespace Codesanook.OrganizationProfile.Models {
     public class ContactFormPart: ContentPart {
 
         [Required]
+        [DisplayName("Name")]
         public string Name { get; set; }
 
         [DisplayName("Email address")]
@@ -17,6 +18,7 @@ namespace Codesanook.OrganizationProfile.Models {
         public string MobilePhoneNumber { get; set; }
 
         [Required]
+        [DisplayName("Message")]
         public string Message { get; set; }
     }
 }

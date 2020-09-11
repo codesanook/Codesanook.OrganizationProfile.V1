@@ -6,9 +6,9 @@
         m => m.Name,
         new
             {
-            @class = "form-control input-contact-us",
-            placeholder = T(Html.DisplayNameFor(m => m.Name).ToString())
-        }
+                @class = "form-control input-contact-us",
+                placeholder = T(Html.DisplayNameFor(m => m.Name).ToString())
+            }
     )
     @Html.ValidationMessageFor(m => m.Name)
 </div>
@@ -19,9 +19,9 @@
         new
             {
                 type = "email",
-            @class = "form-control input-contact-us",
-            placeholder = T(Html.DisplayNameFor(m => m.EmailAddress).ToString())
-        }
+                @class = "form-control input-contact-us",
+                placeholder = T(Html.DisplayNameFor(m => m.EmailAddress).ToString())
+            }
     )
     @Html.ValidationMessageFor(m => m.EmailAddress)
 </div>
@@ -32,9 +32,9 @@
         new
             {
                 type = "tel",
-            @class = "form-control  input-contact-us",
-            placeholder = T(Html.DisplayNameFor(m => m.MobilePhoneNumber).ToString())
-        }
+                @class = "form-control  input-contact-us",
+                placeholder = T(Html.DisplayNameFor(m => m.MobilePhoneNumber).ToString())
+            }
     )
     @Html.ValidationMessageFor(m => m.MobilePhoneNumber)
 </div>
@@ -42,13 +42,14 @@
 <div class="form-group">
     @Html.TextAreaFor(
         m => m.Message,
-        new {
-            @class = "form-control input-contact-us",
-            placeholder = T(Html.DisplayNameFor(m => m.Message).ToString()),
-            rows = 3
-        }
+        new
+            {
+                @class = "form-control input-contact-us",
+                placeholder = T(Html.DisplayNameFor(m => m.Message).ToString()),
+                rows = 3
+            }
     )
     @Html.ValidationMessageFor(m => m.Message)
 </div>
 
-<button type="submit" class="btn-submit-contact-us mb-4">Send</button>
+<button type="submit" class="btn-submit-contact-us mb-4">@T("Send")</button>

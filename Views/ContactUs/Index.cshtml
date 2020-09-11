@@ -12,27 +12,27 @@
             <div class="col-md-6 col-12">
                 <div class="full-width-contents">
                     <div class="entry-content">
-                        <h2>Contact us</h2>
+                        <h2>@T("Contact us")</h2>
                         @* https://getbootstrap.com/docs/4.0/components/forms/#help-text *@
                         <small class="form-text text-muted">
-                            Please fill your contact information, message and click send button to contact us.
+                            @T("Please fill your contact information, message and click send button to contact us.")
                         </small>
                     </div>
+                    <div>
+                        @Html.ValidationSummary(
+                          excludePropertyErrors: true,
+                          "Please fix errors and then click send button again."
+                      )
+                    </div>
+                    @using (Html.BeginFormAntiForgeryPost(Url.Action(nameof(ContactUsController.Index))))
+                    {
+                        @*
+                            Model is a Shape.
+                            Calling Display() to render a shape using the most specific template for its Shape type
+                        *@
+                        @Display(Model.ContactForm)
+                    }
                 </div>
-                <div>
-                    @Html.ValidationSummary(
-                         excludePropertyErrors: true,
-                         "Please fix errors and then click send button again."
-                     )
-                </div>
-                @using (Html.BeginFormAntiForgeryPost(Url.Action(nameof(ContactUsController.Index))))
-                {
-                    @*
-                        Model is a Shape.
-                        Calling Display() to render a shape using the most specific template for its Shape type
-                    *@
-                    @Display(Model.ContactForm)
-                }
             </div>
         }
         <div class="col-md-6 col-12">

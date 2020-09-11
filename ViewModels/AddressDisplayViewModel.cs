@@ -13,7 +13,7 @@ namespace Codesanook.OrganizationProfile.ViewModels {
         [DisplayName("Village number")]
         public int? VillageNumber { get; set; }
 
-        [DisplayName("Building number")]
+        [DisplayName("Building name")]
         public string BuildingName { get; set; }
 
         [DisplayName("Room number")]

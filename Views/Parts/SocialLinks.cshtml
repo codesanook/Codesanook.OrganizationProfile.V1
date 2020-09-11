@@ -14,7 +14,7 @@
         select new { p.Name, Url = p.GetValue(Model) };
 }
 <article class="social-icon clearfix">
-    <h5><span>Social :</span></h5>
+    <h5><span>@T("Social") :</span></h5>
     <ul class="clearfix">
         @foreach (var link in links)
         {

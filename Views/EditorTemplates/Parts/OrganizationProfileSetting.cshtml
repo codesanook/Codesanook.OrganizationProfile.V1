@@ -1,0 +1,12 @@
+@using Codesanook.OrganizationProfile.Models
+@model OrganizationProfileSettingPart
+
+<fieldset>
+    <legend>@T("Organization profile setting")</legend>
+    <div>
+        @Html.CheckBoxFor(m => m.ShowContactUsForm)
+        @Html.LabelFor(m => m.ShowContactUsForm, new { @class = "forcheckbox" })
+        <span class="hint">Check to show contact us form that allow a user to send email directly</span>
+    </div>
+
+</fieldset>

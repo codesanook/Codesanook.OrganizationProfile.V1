@@ -116,6 +116,7 @@ namespace Codesanook.OrganizationProfile.Controllers {
         private dynamic CreateViewModel(dynamic contactFormShape) {
             var contactInformation = contentManager.Query("ContactInformation").List().First();
             var contactInformationShape = contentManager.BuildDisplay(contactInformation);
+            var setting = siteService.GetSiteSettings().As<OrganizationProfileSettingPart>();
 
             /// <see cref="Orchard.DisplayManagement.Implementation.DefaultShapeFactory.Create(string, INamedEnumerable{object}, System.Func{dynamic})"/>
             /// Here is why we can access a parameter as a property in CSHTML file
@@ -123,7 +124,8 @@ namespace Codesanook.OrganizationProfile.Controllers {
             /// shapeFactory.ViewModel return createdContext.Shape
             var viewModel = shapeFactory.ViewModel(
                 ContactForm: contactFormShape,
-                ContactInformation: contactInformationShape
+                ContactInformation: contactInformationShape,
+                Setting: setting
             );
             return viewModel;
         }

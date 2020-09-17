@@ -5,6 +5,8 @@
 {
     <span class="text-nowrap">
         @T(Html.DisplayNameFor(m => m.HouseNumber).ToString())
+    </span>
+    <span class="text-nowrap">
         @Model.HouseNumber,
     </span>
 }
@@ -13,6 +15,8 @@
 {
     <span class="text-nowrap">
         @T(Html.DisplayNameFor(m => m.VillageName).ToString())
+    </span>
+    <span class="text-nowrap">
         @Model.VillageName
     </span>
 }
@@ -21,6 +25,8 @@
 {
     <span class="text-nowrap">
         @T(Html.DisplayNameFor(m => m.VillageNumber).ToString())
+    </span>
+    <span class="text-nowrap">
         @Model.VillageNumber,
     </span>
 }
@@ -29,6 +35,8 @@
 {
     <span class="text-nowrap">
         @T(Html.DisplayNameFor(m => m.BuildingName).ToString())
+    </span>
+    <span class="text-nowrap">
         @Model.BuildingName
     </span>
 }
@@ -37,6 +45,8 @@
 {
     <span class="text-nowrap">
         @T(Html.DisplayNameFor(m => m.RoomNumber).ToString())
+    </span>
+    <span class="text-nowrap">
         @Model.RoomNumber
     </span>
 }
@@ -45,6 +55,8 @@
 {
     <span class="text-nowrap">
         @T(Html.DisplayNameFor(m => m.Floor).ToString())
+    </span>
+    <span class="text-nowrap">
         @Model.Floor
     </span>
 }
@@ -53,6 +65,8 @@
 {
     <span class="text-nowrap">
         @T(Html.DisplayNameFor(m => m.Lane).ToString())
+    </span>
+    <span class="text-nowrap">
         @Model.Lane
     </span>
 }
@@ -61,20 +75,28 @@
 {
     <span class="text-nowrap">
         @T(Html.DisplayNameFor(m => m.Street).ToString())
+    </span>
+    <span class="text-nowrap">
         @Model.Street,
     </span>
 }
 
 @if (!string.IsNullOrWhiteSpace(Model.Subdistrict))
 {
-    @T(Html.DisplayNameFor(m => m.Subdistrict).ToString())
-    <span>@Model.Subdistrict</span>
+    <span class="text-nowrap">
+        @T(Html.DisplayNameFor(m => m.Subdistrict).ToString())
+    </span>
+    <span class="text-nowrap">
+        @Model.Subdistrict
+    </span>
 }
 
 @if (!string.IsNullOrWhiteSpace(Model.District))
 {
     <span class="text-nowrap">
         @T(Html.DisplayNameFor(m => m.District).ToString())
+    </span>
+    <span class="text-nowrap">
         @Model.District
     </span>
 }
@@ -83,6 +105,8 @@
 {
     <span class="text-nowrap">
         @T(Html.DisplayNameFor(m => m.Province).ToString())
+    </span>
+    <span class="text-nowrap">
         @Model.Province
     </span>
 }
@@ -91,6 +115,8 @@
 {
     <span class="text-nowrap">
         @T(Html.DisplayNameFor(m => m.ZipCode).ToString())
+    </span>
+    <span class="text-nowrap">
         @Model.ZipCode
     </span>
 }

@@ -1,13 +1,18 @@
 @using Codesanook.OrganizationProfile.Controllers
 @using Codesanook.OrganizationProfile.Models
+@using Orchard.Core.Settings.Models
+@using Orchard.ContentManagement
 
 @{
     Layout.Title = "Contact us";
-    var setting = Model.Setting as OrganizationProfileSettingPart;
+    var organizationProfileSettingPart = Model.Setting as OrganizationProfileSettingPart;
+    var siteSettingsPart = organizationProfileSettingPart.As<SiteSettingsPart>();
 }
+
 <div class="container">
+    <h4><span>@siteSettingsPart.SiteName</span></h4>
     <div class="row">
-        @if (setting.ShowContactUsForm)
+        @if (organizationProfileSettingPart.ShowContactUsForm)
         {
             <div class="col-sm col-12">
                 <div class="full-width-contents">
@@ -36,6 +41,7 @@
             </div>
         }
         <div class="col-sm col-12">
+            @*Hold contact information content item which contains ContactINformationPart and AddressPart*@
             @Display(Model.ContactInformation)
         </div>
     </div>

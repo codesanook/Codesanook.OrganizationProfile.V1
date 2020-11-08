@@ -5,9 +5,15 @@ https://docs.orchardproject.net/en/latest/Documentation/Understanding-placement-
     <!-- Shape type -->
     <Place Parts_ContactForm_Edit="Content:1"/>
 
+    <!-- Parts of ContactInformation content item display type-->
     <Place Parts_Address="Content:1"/>
     <Place Parts_ContactInformation="Sidebar:1"/>
-    <Place Parts_SocialLinks="Footer:1"/>
+    <!-- For not part of ContactInformation, show at footer -->
+    <Match ContentType="ContactInformation">
+        <Place Parts_SocialLinks="Footer:1"/>
+    </Match>
+    <Place Parts_SocialLinks="Content:1"/>
+    
 
     <Place Parts_Address_Edit="Content:1"/>
     <Place Parts_ContactInformation_Edit="Content:2"/>

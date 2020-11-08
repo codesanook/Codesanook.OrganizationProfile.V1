@@ -136,6 +136,20 @@ namespace Codesanook.OrganizationProfile {
             return 1;
         }
 
+        public int UpdateFrom1() {
+            const string widgetName = "SocialLinksWidget";
+
+            // Create a widget type
+            ContentDefinitionManager.AlterTypeDefinition(
+                widgetName,
+                type => type
+                    .WithPart(nameof(SocialLinksPart))
+                    .AsWidgetWithIdentity() // Need to reference Orchard.Widget assembly
+            );
+
+            return 2;
+        }
+
         private string GetMenuPosition(ContentPart part) {
             var settings = part.Settings.GetModel<AdminMenuPartTypeSettings>();
             var menuPosition = settings == null ? "" : settings.DefaultPosition;
